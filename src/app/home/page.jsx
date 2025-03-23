@@ -12,19 +12,30 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SidebarGroup, SidebarGroupContent, SidebarInput } from "@/components/ui/sidebar";
-import {  Calendar1, Search } from "lucide-react";
+import { Calendar1, Search } from "lucide-react";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { getDateWiseData } from "@/helpers/api";
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
-async function fetchPost() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-  return response.json()
-}
 
 const generateDates = () => {
+
   const today = new Date();
   const dates = [];
   // Start 2 days before today
@@ -49,6 +60,9 @@ const formatDate = (date) => {
 };
 
 export default function Home() {
+  const [showStatusBar, setShowStatusBar] = useState(true)
+  const [showActivityBar, setShowActivityBar] = useState(false)
+  const [showPanel, setShowPanel] = useState(false)
   const [activeDate, setActiveDate] = useState(new Date()); // Default to today
 
   // Generate 7 dates starting from today
@@ -123,14 +137,36 @@ export default function Home() {
                 </CardDescription>
               </div>
               <div className="flex text-center">
-                <CardTitle> <a href="#" className="block py-2 px-4 rounded-lg bg-[#303030] shadow-md hover:shadow-lg hover:bg-gray-50 transition-all">
-                  <select name="cars" id="cars">
-                    <option value="">All Matches</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                  </select>
-                </a></CardTitle>
+                <CardTitle>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" className="bg-[#303030]">All Matches</Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56">
+
+                      <DropdownMenuGroup>
+                        <DropdownMenuItem>
+                          Celtic vs Kilmarnock
+
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          Dundee United vs St. Johnstone
+
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          Motherwell vs Hearts
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          St. Mirren vs Ross County
+
+                        </DropdownMenuItem>
+
+                      </DropdownMenuGroup>
+
+
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </CardTitle>
               </div>
             </div>
           </CardHeader>

@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4">
 
           {/* Sidebar Card */}
-          <div className="bg-white p-4 shadow-md rounded-lg" style={{ backgroundColor: "#222222",height:'118%' }} >
+          <div className="bg-white p-4 shadow-md rounded-lg" style={{ backgroundColor: "#222222" }} >
             <AppSidebar />
           </div>
 

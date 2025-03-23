@@ -175,7 +175,7 @@ export default function Sidebar() {
                     </div>
 
                     {/* Scrollable Sidebar Content */}
-                    <ScrollArea className="h-100" style={{ width: '285px', position:'absolute' }}>
+                    <ScrollArea className="" style={{ width: '285px', position:'absolute' }}>
                         <ul>
                             {data.projects.map((project, index) => (
                                 <li key={index} className="mb-4">

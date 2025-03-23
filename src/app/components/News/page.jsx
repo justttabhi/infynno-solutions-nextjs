@@ -36,6 +36,7 @@ export default function News() {
             <Bookmark />
           </span>
         </div>
+          {/* <p className="text-sm text-gray-400" style={{ fontSize: "10px", textAlign:"l" }}>5 Hours Ago</p> */}
       </div>
       {/* Second Row with Small Image, Text, Date, and Bookmark Icon */}
       <div className="flex justify-between p-4 mt-6 bg-[#303030] rounded-lg shadow-lg">
@@ -52,7 +53,7 @@ export default function News() {
         {/* Text and Date */}
         <div className="flex-2 text-white">
           <p className="text-md font-semibold uppercase" style={{ fontSize: "12px" }}>Here are the top 100 players and managers</p>
-          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 23, 2025</p>
+          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 24, 2025</p>
         </div>
 
         {/* Bookmark Icon */}
@@ -74,7 +75,7 @@ export default function News() {
         {/* Text and Date */}
         <div className="flex-2 text-white">
           <p className="text-md font-semibold uppercase" style={{ fontSize: "12px" }}>Some small text goes here.</p>
-          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 23, 2025</p>
+          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 24, 2025</p>
         </div>
 
         {/* Bookmark Icon */}
@@ -96,7 +97,7 @@ export default function News() {
         {/* Text and Date */}
         <div className="flex-2 text-white">
           <p className="text-md font-semibold uppercase" style={{ fontSize: "12px" }}>Results and scores from the Premier League....!!</p>
-          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 23, 2025</p>
+          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 24, 2025</p>
         </div>
 
         {/* Bookmark Icon */}
@@ -118,7 +119,7 @@ export default function News() {
         {/* Text and Date */}
         <div className="flex-2 text-white">
           <p className="text-md font-semibold uppercase" style={{ fontSize: "12px" }}>Join or start a competition now!</p>
-          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 23, 2025</p>
+          <p className="text-sm text-gray-400" style={{ fontSize: "10px" }}>March 24, 2025</p>
         </div>
 
         {/* Bookmark Icon */}
