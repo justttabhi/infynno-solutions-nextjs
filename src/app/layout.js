@@ -23,6 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100`} style={{ backgroundColor: '#303030' }}>
         {/* Main Layout Container */}
         <QueryProvider>

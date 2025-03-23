@@ -100,14 +100,14 @@ export default function Home() {
       <div className="grid grid-rows-2 gap-4 p-0" style={{ paddingTop: "0" }}>
 
         {/* Row 1: Image */}
-        <div className=" row-span-2 rounded-lg bg-img">
+        <div className="w-80 md:w-32 lg:w-full row-span-2 rounded-lg bg-img">
 
         </div>
 
         {/* Row 2: Division with 4 rows */}
-        <Card className=" shadow-lg rounded-lg text-[#FFFFFF]" style={{ backgroundColor: "#222222" }}>
+        <Card className="w-80 md:w-32 lg:w-full shadow-lg rounded-lg text-[#FFFFFF]" style={{ backgroundColor: "#222222" }}>
           <CardHeader>
-            <div className="flex justify-between space-x-4" style={{ alignItems: "baseline" }}>
+            <div className="flex flex-wrap justify-between space-x-4" style={{ alignItems: "baseline" }}>
               <div className="flex text-center">
                 <CardTitle>
                   <a href="#" className="block py-2 px-4 rounded-lg bg-[#303030] shadow-md transition-all">
@@ -115,7 +115,7 @@ export default function Home() {
                   </a>
                 </CardTitle>
               </div>
-              <div className="flex-4 text-center">
+              <div className="flex-4 w-48 md:w-32 lg:w-full text-center">
                 <CardDescription>
                   <form>
                     <SidebarGroup className="py-0">
@@ -171,7 +171,7 @@ export default function Home() {
             </div>
           </CardHeader>
           <CardContent>
-            <div className="flex space-x-2 justify-center mt-4">
+            <div className="flex  space-x-2 justify-center mt-4">
               {/* Render the tabs for 7 dates */}
               {dates.map((date, index) => (
                 <button
