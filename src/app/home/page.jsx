@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SidebarGroup, SidebarGroupContent, SidebarInput } from "@/components/ui/sidebar";
-import { Calendar1, Search } from "lucide-react";
+import { Calendar1, CalendarIcon, Search } from "lucide-react";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { getDateWiseData } from "@/helpers/api";
@@ -32,6 +32,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 
 const generateDates = () => {
@@ -64,18 +66,15 @@ export default function Home() {
   const [showActivityBar, setShowActivityBar] = useState(false)
   const [showPanel, setShowPanel] = useState(false)
   const [activeDate, setActiveDate] = useState(new Date()); // Default to today
+  const [date, setDate] = useState('')
 
   // Generate 7 dates starting from today
   const dates = generateDates();
 
-  // const data1 = [
-  //   { name: 'Live', country: 'Span 2-1 USA' },
-  //   { name: '13:40', country: 'Japan - Canada' },
-  //   { name: '18:20', country: 'Gnk - UK' }
-  // ];
+
   const { data, error, isLoading } = useQuery({
-    queryKey: ["posts"],
-    queryFn: () => getDateWiseData("2025-04-12")
+    queryKey: ["posts", activeDate.toISOString().split('T')[0]],
+    queryFn: () => getDateWiseData(activeDate.toISOString().split('T')[0])
   });
   // Log loading, error, and data state for debugging
   console.log("Loading:", isLoading);
@@ -86,12 +85,7 @@ export default function Home() {
 
   const openCalendar = (e) => {
     return (<>
-      <Calendar
-        mode="single"
-        selected={date}
-        onSelect={setDate}
-        className="rounded-md border"
-      />
+
     </>)
   }
   return (
@@ -188,7 +182,28 @@ export default function Home() {
               ))}
               <a href="#" className="block py-2 px-4 rounded-lg bg-[#303030] shadow-md transition-all">
                 <span style={{ color: "#C3CC5A" }}>
-                  <Calendar1 onClick={openCalendar} />
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      {/* <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-[240px] justify-start text-left font-normal",
+                          !date && "text-muted-foreground"
+                        )}
+                      > */}
+                        <CalendarIcon />
+                        {/* {date ? format(date, "PPP") : <span>Pick a date</span>} */}
+                      {/* </Button> */}
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={activeDate}
+                        onSelect={setActiveDate}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
                 </span>
               </a>
             </div>
