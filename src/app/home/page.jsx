@@ -191,8 +191,8 @@ export default function Home() {
                           !date && "text-muted-foreground"
                         )}
                       > */}
-                        <CalendarIcon />
-                        {/* {date ? format(date, "PPP") : <span>Pick a date</span>} */}
+                      <CalendarIcon />
+                      {/* {date ? format(date, "PPP") : <span>Pick a date</span>} */}
                       {/* </Button> */}
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
@@ -221,18 +221,22 @@ export default function Home() {
 
                 {/* Table Body */}
                 <tbody>
-                  {data?.data?.map((match, index) => (
-                    <tr
-                      key={index}
-                      className={index % 2 === 0 ? 'bg-[#303030]' : 'bg-[#222222]'}
-                    >
-                      {/* <td className="px-6 py-3">{match.name}</td> */}
-                      <td className="px-6 py-3">{new Date(match.starting_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
-                      <td className="px-6 py-3">{match.name}</td>
-                      <td className="px-6 py-3">{match.result_info ? match.result_info : 'N/A'}</td>
-                      {/* <td className="px-6 py-3">{match.name.split(' vs ')[1]}</td> */}
-                    </tr>
-                  ))}
+                  {data?.data ? (<>
+                    { data?.data?.map((match, index) => (
+                      <tr
+                        key={index}
+                        className={index % 2 === 0 ? 'bg-[#303030]' : 'bg-[#222222]'}
+                      >
+                        {/* <td className="px-6 py-3">{match.name}</td> */}
+                        <td className="px-6 py-3">{new Date(match.starting_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
+                        <td className="px-6 py-3">{match.name}</td>
+                        <td className="px-6 py-3">{match.result_info ? match.result_info : 'N/A'}</td>
+                        {/* <td className="px-6 py-3">{match.name.split(' vs ')[1]}</td> */}
+                      </tr>
+                    ))}
+                  </>
+                  ):(<div className="p-3" style={{textAlign:"center"}}>No match played at this date.</div>)}
+
                 </tbody>
 
 
