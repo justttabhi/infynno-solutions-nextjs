@@ -228,9 +228,9 @@ export default function Home() {
                     >
                       {/* <td className="px-6 py-3">{match.name}</td> */}
                       <td className="px-6 py-3">{new Date(match.starting_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
-                      <td className="px-6 py-3">{match.name.split(' vs ')[0]}</td>
+                      <td className="px-6 py-3">{match.name}</td>
                       <td className="px-6 py-3">{match.result_info ? match.result_info : 'N/A'}</td>
-                      <td className="px-6 py-3">{match.name.split(' vs ')[1]}</td>
+                      {/* <td className="px-6 py-3">{match.name.split(' vs ')[1]}</td> */}
                     </tr>
                   ))}
                 </tbody>
