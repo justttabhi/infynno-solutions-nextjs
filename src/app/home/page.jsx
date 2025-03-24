@@ -215,7 +215,7 @@ export default function Home() {
                 {/* Table Header */}
                 <thead className="bg-[#000000] text-white">
                   <tr>
-                    <th colSpan={4} className="px-6 py-3  font-medium text-left">World - FIFA Women's World Cup <b style={{ color: "#303030" }}>(Quarter Final)</b></th>
+                    <th colSpan={4} className="px-6 py-3  font-medium text-left">World - FIFA Men's World Cup <b style={{ color: "#303030" }}>(Quarter Final)</b></th>
                   </tr>
                 </thead>
 
